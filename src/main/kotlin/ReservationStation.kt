@@ -1,3 +1,8 @@
+/**
+ * The class of reservation station, This is actually the reservation station
+ * for Add, Sub, Multi and Divide
+ * Operations related to load and save are in LoadAndSaveStation.kt
+ */
 class ReservationStation(addNum: Int, mulNum: Int) {
 
     var addStation: Array<actualStation?>
@@ -15,16 +20,15 @@ class ReservationStation(addNum: Int, mulNum: Int) {
 
     }
 
+    // Initialize the add station and multi station
     init {
         addStation = arrayOfNulls<actualStation>(addNum)
         multiStation = arrayOfNulls<actualStation>(mulNum)
 
         for (i in 0 until addNum) {
-//            station.add(actualStation(AddType))
             addStation[i] = actualStation(AddType)
         }
         for (i in 0 until mulNum) {
-//            station.add(actualStation(AddType))
             multiStation[i] = actualStation(MultiType)
         }
     }
@@ -98,6 +102,7 @@ class ReservationStation(addNum: Int, mulNum: Int) {
         }
     }
 
+    // record an instruction will be executed
     fun dealWithStart(actualStation: actualStation) {
         actualStation.let {
             if (!it.executing) {
@@ -106,6 +111,7 @@ class ReservationStation(addNum: Int, mulNum: Int) {
             }
         }
     }
+
     fun finishAndWrite(actualStation: actualStation, index: Int) {
         actualStation.let {
             it.busy = false

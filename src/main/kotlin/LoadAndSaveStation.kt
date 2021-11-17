@@ -1,8 +1,8 @@
+/**
+ * the class of load station and save station
+ */
+
 class LoadAndSaveStation(saveNum:Int, loadNum: Int) {
-
-    lateinit var busy: BooleanArray
-
-    lateinit var result: Array<String?>
 
     var saveStation: Array<actualStation?>
 
@@ -44,6 +44,7 @@ class LoadAndSaveStation(saveNum:Int, loadNum: Int) {
     }
 
 
+    // Execute instructions in a cycle, check both the save station and load station
     fun execute() {
         executeSave()
         executeLoad()
@@ -69,13 +70,6 @@ class LoadAndSaveStation(saveNum:Int, loadNum: Int) {
                         StationProvider.updatefinish(it.ins!!.id)
                         StationProvider.addUpdate(Instruction.LOAD + " " + index, it.value)
                         StationProvider.updateToRegister(it.ins!!, it.value, index)
-//                        var target = StationProvider.registerResult[it.ins.dest]
-//                        target?.let {
-//                            if (target.refer == Instruction.LOAD + " " + index) {
-//                                StationProvider.registerResult[actualStation.ins.dest]?.refer = null
-//                                StationProvider.registerResult[actualStation.ins.dest]?.number = actualStation.ins.operator1.toDouble()
-//                            }
-//                        }
                     }
                 } else {
                     it.ins?.justIssue = false

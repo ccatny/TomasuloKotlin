@@ -6,7 +6,6 @@ fun readInstructions(filePath: String): List<String> {
     val file = File(filePath)
     val lines: List<String> = file.readLines()
     return lines
-//    var instructions = List<String>()
 }
 
 

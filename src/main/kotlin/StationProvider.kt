@@ -1,3 +1,7 @@
+/**
+ * This is an object to provide all stations. Object is used to keep data consistency
+ */
+
 object StationProvider {
     const val registerSize = 30
 
@@ -52,6 +56,7 @@ object StationProvider {
         updateMap.clear()
     }
 
+    // Used to update the reservation station whether an operand is available
     private fun update(refer:String, num:Double) {
         reservationStation.addStation.forEach {
             it?.let {

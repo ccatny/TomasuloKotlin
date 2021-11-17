@@ -1,3 +1,6 @@
+/**
+ * This is the ExecuteStation, used to record each phase
+ */
 fun ExecuteStation.checkComplete(station: ExecuteStation): Boolean {
     return !station.result.contains(-1)
 }

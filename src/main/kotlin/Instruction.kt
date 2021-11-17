@@ -2,6 +2,10 @@ import StationProvider.loadAndSaveStation
 import StationProvider.registerResult
 import StationProvider.reservationStation
 
+/**
+ *  The instruction class, provides some constant values and related methods
+ */
+
 class Instruction(ins: String, var id: Int) {
     lateinit var type:String
     lateinit var dest:String
@@ -73,6 +77,7 @@ class Instruction(ins: String, var id: Int) {
             }
         }
 
+        // When an instruction is issued, record it in the reservation station
         fun processReservation(ins: Instruction, station:ReservationStation.actualStation?, availableId:Int) {
             station?.busy = true
             station?.operation = ins.type

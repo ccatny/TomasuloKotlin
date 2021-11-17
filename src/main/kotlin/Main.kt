@@ -3,14 +3,13 @@ import StationProvider.insList
 import StationProvider.updateStation
 
 var clock = 1
+/**
+ * Created by Chengkai Zhang on 6, November 2021
+ */
 
 fun main(args: Array<String>) {
-    println("Hello World!")
 
-    // Try adding program arguments at Run/Debug configuration
-//    println("Program arguments: ${args.joinToString()}")
-
-
+    // Main body of the cycle, If the calculation is not finished, another cycle is added
     while (! executeStation.checkComplete(executeStation)) {
         issueIns(executeStation)
         executeIns()
@@ -18,14 +17,14 @@ fun main(args: Array<String>) {
         clock++
     }
 
-    println("Hello World!")
-
-    executeStation.issue.forEach {
-        println(it)
-    }
-    println()
-    executeStation.result.forEach {
-        println(it)
+    //print the result
+    println("issue   start complete   finish complete   write back   ")
+    for (i in 0 until executeStation.issue.size) {
+        print(executeStation.issue[i].toString() + "       ")
+        print(executeStation.execute[i].toString() + "                ")
+        print(executeStation.comp[i].toString() + "                 ")
+        print(executeStation.result[i].toString() + "     ")
+        println()
     }
 
 }
