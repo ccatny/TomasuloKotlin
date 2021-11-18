@@ -1,5 +1,5 @@
 /**
- * The class of reservation station, This is actually the reservation station
+ * This is the class of reservation station, This is actually the reservation station
  * for Add, Sub, Multi and Divide
  * Operations related to load and save are in LoadAndSaveStation.kt
  */
@@ -83,7 +83,7 @@ class ReservationStation(addNum: Int, mulNum: Int) {
     fun executeMulti() {
         multiStation.forEachIndexed { index, actualStation ->
             actualStation?.let {
-                if (it.qk == "" && it.qj == "" && it.busy) {
+                if (it.qk == "" && it.qj == "" && it.busy && !it.ins?.justIssue!!) {
                     dealWithStart(it)
                     it.count--
                     if (it.count == 0) {
@@ -97,6 +97,8 @@ class ReservationStation(addNum: Int, mulNum: Int) {
                     else if (it.count == -1) {
                         finishAndWrite(it, index)
                     }
+                } else {
+                    it.ins?.justIssue = false
                 }
             }
         }

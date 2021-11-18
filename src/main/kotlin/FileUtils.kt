@@ -8,6 +8,13 @@ fun readInstructions(filePath: String): List<String> {
     return lines
 }
 
+fun printWithSpace(num: Int, space: String) {
+    if (num == -1) {
+        print(" " + space)
+    } else {
+        print(num.toString() + space)
+    }
+}
 
 
 

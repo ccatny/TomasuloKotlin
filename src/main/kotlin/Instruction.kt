@@ -19,10 +19,10 @@ class Instruction(ins: String, var id: Int) {
         val LOAD = "LD"
         val SUB = "SUBD"
         val MULTD = "MULD"
-        val DIVID = "DIVID"
+        val DIVID = "DIVD"
 
         val addCycle = 2
-        val multiCycle = 3//10
+        val multiCycle = 10//10, 3
         val loadCycle = 3
         val DividCycle = 40
         val subCycle = 2 //3

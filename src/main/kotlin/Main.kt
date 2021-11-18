@@ -9,22 +9,13 @@ var clock = 1
 
 fun main(args: Array<String>) {
 
-    // Main body of the cycle, If the calculation is not finished, another cycle is added
+    // Main body of the algorithm, If the calculation has not been finished, another cycle is added
     while (! executeStation.checkComplete(executeStation)) {
         issueIns(executeStation)
         executeIns()
         updateStation()
+        printStatus()
         clock++
-    }
-
-    //print the result
-    println("issue   start complete   finish complete   write back   ")
-    for (i in 0 until executeStation.issue.size) {
-        print(executeStation.issue[i].toString() + "       ")
-        print(executeStation.execute[i].toString() + "                ")
-        print(executeStation.comp[i].toString() + "                 ")
-        print(executeStation.result[i].toString() + "     ")
-        println()
     }
 
 }
@@ -49,5 +40,18 @@ fun issueIns(executeStation:ExecuteStation) {
 fun executeIns() {
     StationProvider.loadAndSaveStation.execute()
     StationProvider.reservationStation.execute()
+}
+
+fun printStatus() {
+    //print the result
+    println("current cycle : " + clock)
+    println("issue   start complete   finish complete   write back   ")
+    for (i in 0 until executeStation.issue.size) {
+        printWithSpace(executeStation.issue[i], "       ")
+        printWithSpace(executeStation.execute[i], "                ")
+        printWithSpace(executeStation.comp[i], "                 ")
+        printWithSpace(executeStation.result[i],"     ")
+        println()
+    }
 }
 
